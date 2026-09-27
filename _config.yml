@@ -1,0 +1,5 @@
+title: "SemIf-OpenJev-mirror-583"
+description: "High availability mirror and network topology specifications for TheoLeeCJ/SemIf-OpenJev"
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-relative-links
