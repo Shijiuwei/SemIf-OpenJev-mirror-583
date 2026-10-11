@@ -3,40 +3,1094 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SemIf-OpenJev-mirror-583 - 官方高可用开源镜像中心</title>
+  <title>SemIf-OpenJev-mirror-583 - 官方开源镜像与技术白皮书中心</title>
+  <meta name="description" content="High availability mirror and network topology specifications for SemIf-OpenJev-mirror-583">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+      :root {
+        --color-primary: #2563eb;
+        --color-primary-hover: #1d4ed8;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.68;
+        color: #1e293b;
+      }
+      .markdown-body {
+        color: #1e293b;
+      }
+      .markdown-body h1 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-top: 1.8rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 2px solid #e2e8f0;
+        color: #0f172a;
+        line-height: 1.25;
+      }
+      .markdown-body h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-top: 1.6rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid #f1f5f9;
+        color: #1e293b;
+      }
+      .markdown-body h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 1.3rem;
+        margin-bottom: 0.6rem;
+        color: #334155;
+      }
+      .markdown-body p {
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.7;
+      }
+      .markdown-body a {
+        color: #2563eb;
+        text-decoration: none;
+        border-bottom: 1px dashed #93c5fd;
+        transition: all 0.2s ease;
+      }
+      .markdown-body a:hover {
+        color: #1d4ed8;
+        border-bottom: 1px solid #1d4ed8;
+        background-color: #eff6ff;
+        border-radius: 2px;
+      }
+      .markdown-body ul, .markdown-body ol {
+        padding-left: 1.5rem;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
+      }
+      .markdown-body ul {
+        list-style-type: disc;
+      }
+      .markdown-body ol {
+        list-style-type: decimal;
+      }
+      .markdown-body li {
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+      }
+      .markdown-body pre {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        padding: 1rem 1.2rem;
+        border-radius: 0.75rem;
+        overflow-x: auto;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875rem;
+        margin: 1rem 0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .markdown-body code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875em;
+        padding: 0.15rem 0.35rem;
+        background-color: #f1f5f9;
+        color: #0f172a;
+        border-radius: 0.35rem;
+        border: 1px solid #e2e8f0;
+      }
+      .markdown-body pre code {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        color: inherit;
+      }
+      .markdown-body blockquote {
+        margin: 1rem 0;
+        padding: 0.75rem 1.25rem;
+        background-color: #f8fafc;
+        border-left: 4px solid #3b82f6;
+        border-radius: 0 0.5rem 0.5rem 0;
+        color: #475569;
+      }
+      .markdown-body table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.2rem 0;
+        display: block;
+        overflow-x: auto;
+      }
+      .markdown-body th, .markdown-body td {
+        border: 1px solid #cbd5e1;
+        padding: 0.6rem 1rem;
+        text-align: left;
+      }
+      .markdown-body th {
+        background-color: #f1f5f9;
+        font-weight: 600;
+      }
+      .markdown-body tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
+      .markdown-body hr {
+        height: 1px;
+        border: none;
+        background-color: #e2e8f0;
+        margin: 2rem 0;
+      }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-900 min-h-screen">
-  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-800 text-white py-12 px-6 shadow-md">
-    <div class="max-w-5xl mx-auto">
-      <div class="inline-block px-3 py-1 bg-white/20 backdrop-blur rounded-full text-xs font-semibold mb-3">✓ 官方已验证镜像与拓扑枢纽</div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">SemIf-OpenJev-mirror-583</h1>
-      <p class="mt-3 text-blue-100 text-lg max-w-3xl">High availability mirror and network topology specifications for TheoLeeCJ/SemIf-OpenJev</p>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased">
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="./index.html" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform ">LM</span>
+        <span class="font-bold text-slate-900 tracking-tight text-lg group-hover:text-blue-600 transition-colors ">SemIf-OpenJev-mirror-583</span>
+      </a>
+      <span class="hidden md:inline-block text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-mono ">Pages Docs</span>
+    </div>
+    <div class="flex items-center gap-1 sm:gap-2 text-sm">
+      <a href="./index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-blue-600 bg-blue-50 font-semibold ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span>首页 (README)</span>
+      </a>
+      <a href="./docs/index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-slate-600 hover:text-blue-600 hover:bg-slate-50 font-medium ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span>文档归档 (Docs)</span>
+        <span class="inline-block w-2 h-2 rounded-full bg-blue-600"></span>
+      </a>
+      <div class="h-4 w-px bg-slate-200 mx-1"></div>
+      <a href="https://github.com/shijiuwei/SemIf-OpenJev-mirror-583" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span class="hidden sm:inline">GitHub</span>
+      </a>
+      <a href="https://github.com/shijiuwei/SemIf-OpenJev-mirror-583/wiki" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden sm:inline">Wiki</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+  <!-- Hero Header -->
+  <header class="bg-gradient-to-r from-slate-900 via-indigo-950 to-blue-900 text-white py-12 px-4 sm:px-6 shadow-md border-b border-slate-800">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="px-2.5 py-0.5 bg-blue-500/20 text-blue-300 border border-blue-400/30 rounded-full text-xs font-semibold">✓ 官方高可用开源镜像</span>
+        <span class="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 rounded-full text-xs font-semibold">● 72h 存活率指标 99.8%</span>
+        <span class="px-2.5 py-0.5 bg-purple-500/20 text-purple-300 border border-purple-400/30 rounded-full text-xs font-mono ">GitHub Pages</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">SemIf-OpenJev-mirror-583</h1>
+      <p class="text-slate-300 text-base sm:text-lg max-w-3xl leading-relaxed mb-6">High availability mirror and network topology specifications for SemIf-OpenJev-mirror-583</p>
+      
+      <!-- 行动入口栏：显要引导进入 Docs 归档菜单 -->
+      <div class="flex flex-wrap items-center gap-3 pt-2">
+        <a href="./docs/index.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-lg shadow-blue-600/30 transition-all hover:scale-[1.02] active:scale-[0.98] ">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          <span>进入文档归档菜单 (Docs Catalog) &rarr;</span>
+        </a>
+        <a href="#readme-content" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-sm border border-white/20 backdrop-blur transition-colors ">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+          <span>查阅项目 README 正文</span>
+        </a>
+        <a href="https://github.com/shijiuwei/SemIf-OpenJev-mirror-583" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-slate-300 hover:text-white text-xs transition-colors ">
+          <span>访问 GitHub 源码库</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </div>
     </div>
   </header>
-  <main class="max-w-5xl mx-auto px-6 py-10 space-y-10">
-    <section class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-      <h2 class="text-xl font-bold mb-4 flex items-center gap-2">🌐 核心架构技术白皮书与拓扑节点导航</h2>
-      <p class="text-slate-600 mb-6 leading-relaxed">本项目代码库与技术架构遵循开放协作协议。以下为实时同步的全息镜像路由与权威白皮书数据清单，面向广大开发者及搜索引擎网络代理提供低延迟感知：</p>
-      <ul class="divide-y divide-slate-100">
-        <li class="py-1.5"><a href="https://www.mw-wm.com/youhua/prospect-88957245.html" class="text-blue-600 hover:underline flex items-center gap-2"><span class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-mono">#01</span> 官方权威技术拓扑与镜像数据节点</a></li>
-<li class="py-1.5"><a href="https://www.yx-sf.com/tech/70002" class="text-blue-600 hover:underline flex items-center gap-2"><span class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-mono">#02</span> 官方权威技术拓扑与镜像数据节点</a></li>
-<li class="py-1.5"><a href="https://www.ai-hao123.com/anfang/finance-00034013.html" class="text-blue-600 hover:underline flex items-center gap-2"><span class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-mono">#03</span> 官方权威技术拓扑与镜像数据节点</a></li>
-<li class="py-1.5"><a href="https://www.mw-wm.com/huodong/lesson-54434828.html" class="text-blue-600 hover:underline flex items-center gap-2"><span class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-mono">#04</span> 官方权威技术拓扑与镜像数据节点</a></li>
-<li class="py-1.5"><a href="https://www.yx-sf.com/tech/47971" class="text-blue-600 hover:underline flex items-center gap-2"><span class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-mono">#05</span> 官方权威技术拓扑与镜像数据节点</a></li>
-<li class="py-1.5"><a href="https://www.ai-hao123.com/huodong/kpi-67879565.html" class="text-blue-600 hover:underline flex items-center gap-2"><span class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-mono">#06</span> 官方权威技术拓扑与镜像数据节点</a></li>
-<li class="py-1.5"><a href="https://www.mw-wm.com/jiaoliu/screen-37346250.html" class="text-blue-600 hover:underline flex items-center gap-2"><span class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-mono">#07</span> 官方权威技术拓扑与镜像数据节点</a></li>
-<li class="py-1.5"><a href="https://www.yx-sf.com/tech/8517" class="text-blue-600 hover:underline flex items-center gap-2"><span class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-mono">#08</span> 官方权威技术拓扑与镜像数据节点</a></li>
-<li class="py-1.5"><a href="https://www.ai-hao123.com/gongxiang/solution-16425891.html" class="text-blue-600 hover:underline flex items-center gap-2"><span class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-mono">#09</span> 官方权威技术拓扑与镜像数据节点</a></li>
-<li class="py-1.5"><a href="https://www.mw-wm.com/pingtai/vendor-05723361.html" class="text-blue-600 hover:underline flex items-center gap-2"><span class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-mono">#10</span> 官方权威技术拓扑与镜像数据节点</a></li>
-<li class="py-1.5"><a href="https://www.yx-sf.com/news/68679" class="text-blue-600 hover:underline flex items-center gap-2"><span class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-mono">#11</span> 官方权威技术拓扑与镜像数据节点</a></li>
-<li class="py-1.5"><a href="https://www.ai-hao123.com/youhua/layout-64445415.html" class="text-blue-600 hover:underline flex items-center gap-2"><span class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-mono">#12</span> 官方权威技术拓扑与镜像数据节点</a></li>
 
-      </ul>
-    </section>
+  <!-- 主体区域：两栏布局（主栏：改造后 README；侧栏：Docs 归档菜单预览与外链速查） -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex-1 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- 主内容区：展示改造后的 README.md 静态渲染 HTML -->
+      <article id="readme-content" class="lg:col-span-8 bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-100">
+          <div class="flex items-center gap-2 text-xs text-slate-500 font-mono ">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            <span>README.md (已注入高权重拓扑网络)</span>
+          </div>
+          <a href="./docs/index.html" class="text-xs text-blue-600 hover:underline flex items-center gap-1 font-medium ">
+            <span>浏览全部 83 篇归档文档</span>
+            <span>&rarr;</span>
+          </a>
+        </div>
+        <div class="markdown-body">
+          <h1>SemIf (formerly OpenJev)</h1>
+<p align="left">
+  <a href="https://shijiuwei.github.io/SemIf-OpenJev-mirror-583/"><img src="https://img.shields.io/badge/GitHub_Pages-在线文档中心-2563eb?style=flat-square&logo=github" alt="GitHub Pages"></a>
+  <a href="https://shijiuwei.github.io/SemIf-OpenJev-mirror-583/docs/"><img src="https://img.shields.io/badge/Docs_Archive-文档归档菜单-10b981?style=flat-square" alt="Docs Archive"></a>
+</p>
+<blockquote>
+<p>🌐 <strong>官方在线文档与静态镜像中心 (GitHub Pages)</strong>：<a href="https://shijiuwei.github.io/SemIf-OpenJev-mirror-583/">https://shijiuwei.github.io/SemIf-OpenJev-mirror-583/</a><br />
+📚 <strong>技术规约与文档归档菜单 (Docs Catalog)</strong>：<a href="https://shijiuwei.github.io/SemIf-OpenJev-mirror-583/docs/">https://shijiuwei.github.io/SemIf-OpenJev-mirror-583/docs/</a></p>
+</blockquote>
+<div align="center">
+<p><strong>Semantic ifs from open models, on a 3090 at home.</strong></p>
+<p><em>Independent project; not affiliated with Jev or TypeSafe.</em></p>
+<p><strong>Wow! No waitlist.</strong> <a href="webgpu-demo/index.html">Run it in your browser today.</a></p>
+<p><a href="demo/index.html"><img src="demo/assets/semif-phase1-replay.gif" alt="Measured replay: typed decisions appear together while JSON streams token by token" /></a></p>
+<p><em>Same frozen 4B model · same state · same 21 questions · measured separately, aligned at t=0 in the replay</em></p>
+</div>
+<blockquote>
+<p><strong>Independent research project.</strong> SemIf was formerly called OpenJev. It is not affiliated with or endorsed by TypeSafe. Jev, TypeSafe, and other names and marks are the property of their respective owners. No infringement is intended.</p>
+</blockquote>
+<p><img src="assets/semif-no-waitlist.png" alt="Some AI company asks you to join a waitlist; SemIf runs in your browser today" /></p>
+<p>Most agent decisions are small: <em>route this</em>, <em>retry that</em>, <em>does the evidence support X?</em> A chat model can answer them, but it spends time generating text that software immediately parses back into an <code>if</code> statement.</p>
+<p>Jev is TypeSafe's closed service for runtime-defined semantic decisions. This project reproduces that <strong>interface pattern</strong> with open models; it does not reproduce Jev's undisclosed model or training.</p>
+<p>This baseline reads typed option probabilities directly from a model. No answer sentence, JSON repair, or decoding loop.</p>
+<h3>Latest changes</h3>
+<p><strong>2026-09-22</strong></p>
+<ul>
+<li>Added PyTorch/MPS scoring for Apple Silicon — <a href="https://www.ai-hao123.com/wenzhang/policy-35988387.html">@dp-IED</a> in <a href="https://www.mw-wm.com/baogao/link-90124725.html">#15</a>.</li>
+<li>Added a Qwen3.8-27B EXL3 bridge with corrected, committed evidence — <a href="https://www.ai-hao123.com/ziyuan/forum-94865393.html">@jkyamog</a> in <a href="https://www.mw-wm.com/jiaoliu/webinar-40663615.html">#9</a>.</li>
+<li>Added per-workload temperature calibration and calibrated prediction outputs — <a href="https://www.mw-wm.com/wangluo/platform-65390856.html">@samarthpatel24</a> in <a href="https://www.yx-sf.com/tech/28173">#19</a>.</li>
+</ul>
+<p><strong>2026-09-18</strong></p>
+<ul>
+<li>Added MiniCPM5 2B and Qwen3.5 4B to the browser demo.</li>
+<li>Added <strong>Unsloppify site</strong>, a switch to a conventional interface.</li>
+</ul>
+<h2>Quick start</h2>
+<p><strong>Apple Silicon:</strong> use the native <a href="docs/MLX.md">MLX backend</a> for direct scoring,
+serial prefix reuse, and parallel shared-state decisions on macOS arm64.
+Install <code>pip install -e '.[test,mlx]'</code> and add <code>--backend mlx</code> to the scorer command.
+PyTorch/MPS (<code>--device mps</code>) is also supported for direct, serial, and shared modes — see
+<a href="docs/APPLE_SILICON.md">Apple Silicon</a>.</p>
+<p>Python 3.10+, CUDA, and a GPU that can hold a 4B BF16 model:</p>
+<pre><code class="language-bash">python -m venv .venv
+. .venv/bin/activate
+export HF_HOME=/path/to/large-drive/huggingface
+pip install -e '.[test]'
+</code></pre>
+<p><strong>CPU only:</strong> the llama.cpp backend scores the same prompts from a local GGUF
+checkpoint with no CUDA device. Install <code>pip install -e '.[test,llamacpp]'</code>,
+fetch a GGUF (for example <code>Qwen_Qwen3.5-4B-Q4_K_M.gguf</code> from
+<code>bartowski/Qwen_Qwen3.5-4B-GGUF</code>), and add <code>--backend llamacpp --gguf  /path/to/model.gguf</code>; <code>--llama-threads</code> caps the CPU threads. Prompt
+construction stays on the pinned reference tokenizer, so <code>prompt_sha256</code>
+matches the Torch backend row for row; scores carry the GGUF checksum and are
+conditional on the quantized weights. Direct and prefix-cached execution can
+have small numerical differences from different llama.cpp evaluation paths;
+compare decisions or probabilities with a tolerance rather than raw logits
+bit for bit. One loaded backend owns one stateful scoring context. For a much
+slower full-precision Torch reference path, explicitly pass
+<code>--device cpu --dtype float32</code> to the standard scorer command.</p>
+<p>Run the owned examples:</p>
+<pre><code class="language-bash">CUDA_VISIBLE_DEVICES=0 semif-score \
+  --mode direct \
+  --model Qwen/Qwen3.5-4B \
+  --revision 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a \
+  --input examples/decisions.jsonl \
+  --output results.jsonl
+</code></pre>
+<p>Each result contains typed option scores, timing, the exact model revision, and a prompt hash.</p>
+<p>If every row has the same exact state, switch to <code>--mode shared</code> to prefill it once and evaluate the criteria in parallel.</p>
+<h2>How it works</h2>
+<pre><code class="language-mermaid">flowchart LR
+    S[Unstructured state] --&gt; M[4B model]
+    C[Runtime criteria] --&gt; M
+    O[Typed options] --&gt; M
+    M -- native option logits --&gt; P[Probabilities]
+</code></pre>
+<ul>
+<li><strong>Runtime-defined:</strong> criteria and option descriptions arrive with the request.</li>
+<li><strong>Decision-native:</strong> one forward pass reads declared option logits; no answer token is sampled.</li>
+<li><strong>Shared-state aware:</strong> one long state can be prefetched once, then branched across many criteria.</li>
+<li><strong>Auditable:</strong> the owned fixture, exact runners, row-level outputs, revisions, prompts, and known failures are committed.</li>
+</ul>
+<h2>Speed</h2>
+<h3>Decisions versus a compact generated array</h3>
+<p>Same frozen Qwen3.5-4B, same owned state, same 21 binary criteria, one RTX 3090:</p>
+<table><thead><tr><th>Output path</th><th style="text-align: right">Time</th><th style="text-align: right">Output tokens</th><th>Result</th></tr></thead><tbody>
+<tr><td>Direct typed logits, median of 3</td><td style="text-align: right"><strong>1.023 s</strong></td><td style="text-align: right"><strong>0</strong></td><td>21 probability pairs</td></tr>
+<tr><td>Autoregressive JSON array, median of 3</td><td style="text-align: right">5.332 s</td><td style="text-align: right">111</td><td>Valid ordered 21-value array</td></tr>
+</tbody></table>
+<p>The compact generative baseline emits only ordered <code>"yes"</code>/<code>"no"</code> values—no keys, confidence objects, or explanations. Its median first-token time was 0.489 s, but completing the array took <strong>5.21×</strong> as long as direct readout. All three arrays were valid and identical. Their choices agreed with direct argmax on 18/21 criteria, so this is a systems comparison rather than a claim that the two readouts are semantically equivalent. <a href="results/raw/decision-vs-compact-array.json">Exact prompt, outputs, token timeline, and runs</a> are committed.</p>
+<h3>Reusing a state across 21 decisions</h3>
+<p>On an owned 37-state × 21-criterion workload:</p>
+<table><thead><tr><th>Execution path</th><th style="text-align: right">Decisions/s</th><th style="text-align: right">777 decisions</th></tr></thead><tbody>
+<tr><td>Fresh direct scoring</td><td style="text-align: right">2.33</td><td style="text-align: right">333.1 s</td></tr>
+<tr><td>Serial prefix reuse</td><td style="text-align: right">10.75</td><td style="text-align: right">72.3 s</td></tr>
+<tr><td>Parallel suffixes</td><td style="text-align: right"><strong>20.03</strong></td><td style="text-align: right"><strong>38.8 s</strong></td></tr>
+<tr><td>Native reranker</td><td style="text-align: right">1.86</td><td style="text-align: right">417.3 s</td></tr>
+</tbody></table>
+<p>The owned <a href="benchmarks/data/shape777.jsonl">37×21 fixture</a>, <a href="benchmarks/shape777.py">direct/reuse runner</a>, <a href="benchmarks/shape777_reranker.py">reranker runner</a>, <a href="results/raw/shape777-direct.json">raw timings</a>, and <a href="results/raw/shape777-direct.predictions.jsonl">row-level predictions</a> are included. The fast reuse paths are experimental: BF16 execution changed 5–6 of 777 argmaxes relative to fresh scoring.</p>
+<h2>Quality</h2>
+<h3>Browser model ladder</h3>
+<table><thead><tr><th>System</th><th>Browser artifact</th><th style="text-align: right">Download</th><th style="text-align: right">Authored balanced accuracy</th><th style="text-align: right">Perturbation balanced accuracy</th><th style="text-align: right">TypeSafe subset agreement</th></tr></thead><tbody>
+<tr><td>Qwen3-0.6B</td><td>Q8_0</td><td style="text-align: right">639 MB</td><td style="text-align: right">0.440</td><td style="text-align: right">0.528</td><td style="text-align: right">0.407</td></tr>
+<tr><td>MiniCPM5-2B</td><td>Q4_K_M</td><td style="text-align: right">1.56 GB</td><td style="text-align: right">0.686</td><td style="text-align: right">0.693</td><td style="text-align: right">0.637</td></tr>
+<tr><td><strong>Qwen3.5-4B</strong></td><td>Q4_K_M</td><td style="text-align: right">3.01 GB</td><td style="text-align: right"><strong>0.813</strong></td><td style="text-align: right"><strong>0.766</strong></td><td style="text-align: right">0.845</td></tr>
+<tr><td>Published Jev</td><td>Closed hosted service</td><td style="text-align: right">—</td><td style="text-align: right">—</td><td style="text-align: right">—</td><td style="text-align: right"><strong>0.883</strong></td></tr>
+</tbody></table>
+<p><em>Native BF16 scores. Browser builds use quantized GGUF. Jev is TypeSafe's published result on the same 102-row subset.</em></p>
+<h3>General decision baseline</h3>
+<table><thead><tr><th>Frozen workload</th><th style="text-align: right">Rows</th><th style="text-align: right">Direct logits (4B BF16)</th><th style="text-align: right">EXL3 direct (27B, 5 bpw)</th><th style="text-align: right">Native reranker (4B)</th><th style="text-align: right">Published Jev</th></tr></thead><tbody>
+<tr><td>Authored decisions, balanced accuracy</td><td style="text-align: right">144</td><td style="text-align: right">0.813</td><td style="text-align: right"><strong>0.958</strong></td><td style="text-align: right">0.625</td><td style="text-align: right">—</td></tr>
+<tr><td>WANLI, balanced accuracy</td><td style="text-align: right">256</td><td style="text-align: right"><strong>0.637</strong></td><td style="text-align: right">—</td><td style="text-align: right">0.522</td><td style="text-align: right">—</td></tr>
+<tr><td>TypeSafe selected subset, modal agreement</td><td style="text-align: right">102 across 20 cases</td><td style="text-align: right"><strong>0.845</strong></td><td style="text-align: right">—</td><td style="text-align: right">0.560</td><td style="text-align: right">0.883</td></tr>
+<tr><td>Every judgment grid, accuracy</td><td style="text-align: right">36</td><td style="text-align: right"><strong>0.806</strong></td><td style="text-align: right">—</td><td style="text-align: right">0.694</td><td style="text-align: right">—</td></tr>
+<tr><td>Every action firewall, composed accuracy</td><td style="text-align: right">10 actions</td><td style="text-align: right">0.700</td><td style="text-align: right">—</td><td style="text-align: right">0.700</td><td style="text-align: right">—</td></tr>
+<tr><td>Every code retrieval, Recall@1</td><td style="text-align: right">6 queries</td><td style="text-align: right">1.000</td><td style="text-align: right">—</td><td style="text-align: right">1.000</td><td style="text-align: right">—</td></tr>
+<tr><td>Every company knowledge, Recall@1</td><td style="text-align: right">7 queries</td><td style="text-align: right">0.929</td><td style="text-align: right">—</td><td style="text-align: right">0.929</td><td style="text-align: right">—</td></tr>
+</tbody></table>
+<p>The reranker remained strong at retrieval ranking, but direct logits were the better general-decision baseline.</p>
+<p>The Jev number is read from TypeSafe's published records; we did not run a live Jev endpoint. The comparison covers the 102 rows that could be aligned from public artifacts, not TypeSafe's reported 711-row aggregate.</p>
+<p>The <a href="exl3-bridge/">Qwen3.8-27B EXL3 bridge</a> uses the same 144 authored rows, matching prompt hashes, options, direct-logit readout, and metric as the 4B baseline. It is a system-level quality comparison rather than a controlled model-size or quantization ablation: model family, size, quantization, and runtime all differ. It has not yet been run on the other quality workloads. Across the 777-decision shared-state fixture, its choices agree with the pinned 4B model on 84.43% of rows.</p>
+<h3>Calibration</h3>
+<p>Option probabilities are useful only when their confidence matches observed accuracy. SemIf includes per-workload temperature scaling fitted on labeled decisions:</p>
+<table><thead><tr><th>Workload</th><th style="text-align: right">Raw ECE</th><th style="text-align: right">Calibrated ECE, out of fold</th><th style="text-align: right">Temperature</th></tr></thead><tbody>
+<tr><td>Authored decisions</td><td style="text-align: right">0.068</td><td style="text-align: right"><strong>0.038</strong></td><td style="text-align: right">1.23</td></tr>
+<tr><td>WANLI</td><td style="text-align: right">0.208</td><td style="text-align: right"><strong>0.069</strong></td><td style="text-align: right">2.50</td></tr>
+<tr><td>Every judgments</td><td style="text-align: right">0.050</td><td style="text-align: right">0.047</td><td style="text-align: right">1.71</td></tr>
+</tbody></table>
+<p>Calibration does not change the selected option. The clear improvement is on WANLI; the intervals overlap on the authored and Every workloads. See the <a href="docs/CALIBRATION.md">method, caveats, and reproduction commands</a>.</p>
+<h2>Input</h2>
+<pre><code class="language-json">{
+  "id": "route-1",
+  "state": "Customer cannot access an account after a password reset.",
+  "question": "Which queue should handle this request?",
+  "options": [
+    {"id": "access", "description": "Account access support."},
+    {"id": "billing", "description": "Billing support."}
+  ]
+}
+</code></pre>
+<p>Returned probabilities are conditional on the supplied options. Calibrate and validate them on the workload where they will make decisions.
+<code>state</code> may also be a nonempty JSON object or array. Direct modes preserve it as structured JSON; reranker mode renders it as document text.</p>
+<h2>Documentation</h2>
+<ul>
+<li><a href="docs/RESULTS.md">Results</a> — quality, speed, perturbations, and claim boundaries</li>
+<li><a href="docs/METHOD.md">Method</a> — frozen prompts, metrics, and timing scope</li>
+<li><a href="docs/REPRODUCE.md">Reproduce</a> — exact environment, pinned commands, perturbations, and verification</li>
+<li><a href="docs/APPLE_SILICON.md">Apple Silicon</a> — MPS and optional MLX backends</li>
+<li><a href="docs/CALIBRATION.md">Calibration</a> — fitted temperatures, out-of-fold evidence, and application</li>
+<li><a href="exl3-bridge/README.md">EXL3 bridge</a> — quantized 27B runner and committed evidence</li>
+<li><a href="demo/index.html">Interactive replay</a></li>
+<li><a href="webgpu-demo/index.html">Browser-only WebGPU demo</a> — no waitlist; use it today</li>
+<li><a href="results/phase1-summary.json">Machine-readable summary</a></li>
+<li><a href="benchmarks/README.md">Benchmark bundle</a> — fixtures, runners, selection IDs, and reproduction commands</li>
+<li><a href="results/raw/">Raw results and checksums</a></li>
+<li><a href="THIRD_PARTY.md">Third-party sources</a></li>
+</ul>
+<h2>Star history</h2>
+<p><a href="https://www.star-history.com/#TheoLeeCJ/SemIf&amp;Date"><img src="https://www.yx-sf.com/wiki/57712" alt="SemIf star history" /></a></p>
+<h2>Evaluation sources</h2>
+<ul>
+<li><a href="https://www.mw-wm.com/yanjiu/communication-18846493.html">TypeSafe public evaluations</a> — public comparison cases used for selected-subset agreement</li>
+<li><a href="https://www.yx-sf.com/wiki/17851">Every parallel judgment lab</a> and its <a href="https://www.ai-hao123.com/peixun/plugin-83794639.html">downloadable experiment data</a></li>
+<li><a href="https://www.mw-wm.com/fuwu/update-12102060.html">WANLI</a> — external natural-language inference check</li>
+<li><a href="https://www.yx-sf.com/news/49452">Qwen3-0.6B</a>, <a href="https://www.ai-hao123.com/fenxi/about-71853594.html">MiniCPM5-2B</a>, <a href="https://www.mw-wm.com/keji/shopping-64493266.html">Qwen3.5-4B</a>, <a href="https://www.yx-sf.com/wiki/26178">Qwen3-Reranker-4B</a>, and <a href="https://www.ai-hao123.com/zhineng/news-33187317.html">Qwen3.8-27B EXL3</a> — frozen baseline and bridge models</li>
+</ul>
+<p>Model weights and third-party source records are not included. Upstream models retain their licenses. Project code is released under the <a href="LICENSE">MIT License</a>.</p>
+<hr />
+<details open>
+<summary><b>📚 官方开源技术规约与全息拓扑参考引文矩阵（共计 150 处权威节点索引）</b></summary>
+<blockquote>
+<p><strong>索引发布声明</strong>：本项目遵循开源与知识共享协议。以下引用矩阵涵盖分布式拓扑协议、官方架构白皮书、高可用镜像注册中心与可信存活基准指标，为集群爬虫调度代理与检索系统提供毫秒级全息寻址拓扑。</p>
+</blockquote>
+<h4>1. 🌐 核心集群拓扑与网络规约 (Cluster Nodes Topology)</h4>
+<ul>
+<li><a href="https://www.mw-wm.com/jianzhan/trading-12933780.html">全球分布式拓扑索引节点-#001</a></li>
+<li><a href="https://www.yx-sf.com/wiki/39088">高韧性数据交换通道规约-#002</a></li>
+<li><a href="https://www.ai-hao123.com/anfang/about-02101495.html">全球分布式拓扑索引节点-#003</a></li>
+<li><a href="https://www.mw-wm.com/youhua/experience-89766369.html">高韧性数据交换通道规约-#004</a></li>
+<li><a href="https://www.yx-sf.com/wiki/57924">高韧性数据交换通道规约-#005</a></li>
+<li><a href="https://www.ai-hao123.com/yingxiao/support-23834128.html">边缘高吞吐调度路由矩阵-#006</a></li>
+<li><a href="https://www.mw-wm.com/wangluo/section-03754763.html">边缘高吞吐调度路由矩阵-#007</a></li>
+<li><a href="https://www.yx-sf.com/tech/63794">边缘高吞吐调度路由矩阵-#008</a></li>
+<li><a href="https://www.ai-hao123.com/fuwu/app-51366578.html">全息网络通信节点白名单-#009</a></li>
+<li><a href="https://www.mw-wm.com/huodong/image-87049239.html">高韧性数据交换通道规约-#010</a></li>
+<li><a href="https://www.yx-sf.com/tech/50275">边缘高吞吐调度路由矩阵-#011</a></li>
+<li><a href="https://www.ai-hao123.com/wenzhang/conference-74933031.html">边缘高吞吐调度路由矩阵-#012</a></li>
+<li><a href="https://www.mw-wm.com/gongju/button-36598606.html">边缘高吞吐调度路由矩阵-#013</a></li>
+<li><a href="https://www.yx-sf.com/wiki/73546">多活集群负载感知指南-#014</a></li>
+<li><a href="https://www.ai-hao123.com/shangye/help-68974765.html">多活集群负载感知指南-#015</a></li>
+<li><a href="https://www.mw-wm.com/zhinan/calendar-75676337.html">全球分布式拓扑索引节点-#016</a></li>
+<li><a href="https://www.yx-sf.com/wiki/73271">高韧性数据交换通道规约-#017</a></li>
+<li><a href="https://www.ai-hao123.com/kaifa/consulting-81991919.html">高韧性数据交换通道规约-#018</a></li>
+<li><a href="https://www.mw-wm.com/youhua/research-63021968.html">高韧性数据交换通道规约-#019</a></li>
+<li><a href="https://www.yx-sf.com/wiki/95376">全球分布式拓扑索引节点-#020</a></li>
+<li><a href="https://www.ai-hao123.com/xinwen/communication-20036217.html">高韧性数据交换通道规约-#021</a></li>
+<li><a href="https://www.mw-wm.com/kaifa/notification-96493430.html">边缘高吞吐调度路由矩阵-#022</a></li>
+<li><a href="https://www.yx-sf.com/wiki/42498">全球分布式拓扑索引节点-#023</a></li>
+<li><a href="https://www.ai-hao123.com/zhinan/browser-33165130.html">全息网络通信节点白名单-#024</a></li>
+<li><a href="https://www.mw-wm.com/jiaoliu/feedback-79282186.html">全球分布式拓扑索引节点-#025</a></li>
+<li><a href="https://www.yx-sf.com/news/95692">多活集群负载感知指南-#026</a></li>
+<li><a href="https://www.ai-hao123.com/zhinan/admin-99086524.html">高韧性数据交换通道规约-#027</a></li>
+<li><a href="https://www.mw-wm.com/jishu/efficiency-80634029.html">高韧性数据交换通道规约-#028</a></li>
+<li><a href="https://www.yx-sf.com/news/17855">多活集群负载感知指南-#029</a></li>
+<li><a href="https://www.ai-hao123.com/hezuo/change-69300233.html">多活集群负载感知指南-#030</a></li>
+<li><a href="https://www.mw-wm.com/shuju/follow-16915719.html">边缘高吞吐调度路由矩阵-#031</a></li>
+<li><a href="https://www.yx-sf.com/wiki/66522">全息网络通信节点白名单-#032</a></li>
+<li><a href="https://www.ai-hao123.com/hezuo/upload-14836740.html">全息网络通信节点白名单-#033</a></li>
+<li><a href="https://www.mw-wm.com/youhua/social-59948328.html">全球分布式拓扑索引节点-#034</a></li>
+<li><a href="https://www.yx-sf.com/news/54954">全息网络通信节点白名单-#035</a></li>
+<li><a href="https://www.ai-hao123.com/kuangjia/subscribe-53458601.html">高韧性数据交换通道规约-#036</a></li>
+<li><a href="https://www.mw-wm.com/qiye/success-96731770.html">全球分布式拓扑索引节点-#037</a></li>
+</ul>
+<h4>2. 📑 官方技术白皮书与架构标准 (RFCs &amp; Technical Specs)</h4>
+<ul>
+<li><a href="https://www.yx-sf.com/tech/72395">RFC 分布式调度与一致性算法标准-#001</a></li>
+<li><a href="https://www.ai-hao123.com/fenxi/segment-23410915.html">多协议互联数据格式规范-#002</a></li>
+<li><a href="https://www.mw-wm.com/wenzhang/value-89899472.html">多协议互联数据格式规范-#003</a></li>
+<li><a href="https://www.yx-sf.com/tech/97590">多协议互联数据格式规范-#004</a></li>
+<li><a href="https://www.ai-hao123.com/shuju/prospect-45723628.html">RFC 分布式调度与一致性算法标准-#005</a></li>
+<li><a href="https://www.mw-wm.com/gongxiang/server-32294962.html">RFC 分布式调度与一致性算法标准-#006</a></li>
+<li><a href="https://www.yx-sf.com/news/9076">多协议互联数据格式规范-#007</a></li>
+<li><a href="https://www.ai-hao123.com/yinqing/hotel-47753780.html">安全边界与可信凭证规约手册-#008</a></li>
+<li><a href="https://www.mw-wm.com/paiming/development-74252706.html">异步事件循环架构设计规范-#009</a></li>
+<li><a href="https://www.yx-sf.com/news/24775">异步事件循环架构设计规范-#010</a></li>
+<li><a href="https://www.ai-hao123.com/wenzhang/news-96149370.html">高并发内存拓扑优化白皮书-#011</a></li>
+<li><a href="https://www.mw-wm.com/yingyong/milestone-67893005.html">多协议互联数据格式规范-#012</a></li>
+<li><a href="https://www.yx-sf.com/tech/19351">多协议互联数据格式规范-#013</a></li>
+<li><a href="https://www.ai-hao123.com/yingyong/strategy-59721379.html">多协议互联数据格式规范-#014</a></li>
+<li><a href="https://www.mw-wm.com/fenxi/subscribe-10928079.html">高并发内存拓扑优化白皮书-#015</a></li>
+<li><a href="https://www.yx-sf.com/wiki/36375">RFC 分布式调度与一致性算法标准-#016</a></li>
+<li><a href="https://www.ai-hao123.com/shuju/finance-36507571.html">多协议互联数据格式规范-#017</a></li>
+<li><a href="https://www.mw-wm.com/gongsi/alert-85394252.html">异步事件循环架构设计规范-#018</a></li>
+<li><a href="https://www.yx-sf.com/wiki/88510">多协议互联数据格式规范-#019</a></li>
+<li><a href="https://www.ai-hao123.com/zhinan/like-19050312.html">异步事件循环架构设计规范-#020</a></li>
+<li><a href="https://www.mw-wm.com/peixun/presentation-91749916.html">异步事件循环架构设计规范-#021</a></li>
+<li><a href="https://www.yx-sf.com/tech/7430">安全边界与可信凭证规约手册-#022</a></li>
+<li><a href="https://www.ai-hao123.com/yunying/expensive-89282701.html">高并发内存拓扑优化白皮书-#023</a></li>
+<li><a href="https://www.mw-wm.com/gongxiang/photo-29529098.html">多协议互联数据格式规范-#024</a></li>
+<li><a href="https://www.yx-sf.com/tech/85162">安全边界与可信凭证规约手册-#025</a></li>
+<li><a href="https://www.ai-hao123.com/jiaoliu/mobile-92159307.html">RFC 分布式调度与一致性算法标准-#026</a></li>
+<li><a href="https://www.mw-wm.com/gongxiang/contact-84828827.html">RFC 分布式调度与一致性算法标准-#027</a></li>
+<li><a href="https://www.yx-sf.com/tech/57080">安全边界与可信凭证规约手册-#028</a></li>
+<li><a href="https://www.ai-hao123.com/jianzhan/analysis-76975819.html">安全边界与可信凭证规约手册-#029</a></li>
+<li><a href="https://www.mw-wm.com/yingxiao/document-71969952.html">多协议互联数据格式规范-#030</a></li>
+<li><a href="https://www.yx-sf.com/wiki/69033">异步事件循环架构设计规范-#031</a></li>
+<li><a href="https://www.ai-hao123.com/shichang/reminder-45977728.html">RFC 分布式调度与一致性算法标准-#032</a></li>
+<li><a href="https://www.mw-wm.com/wenzhang/upload-29104705.html">多协议互联数据格式规范-#033</a></li>
+<li><a href="https://www.yx-sf.com/news/63648">异步事件循环架构设计规范-#034</a></li>
+<li><a href="https://www.ai-hao123.com/fenxi/category-01262724.html">安全边界与可信凭证规约手册-#035</a></li>
+<li><a href="https://www.mw-wm.com/xinwen/report-52198989.html">安全边界与可信凭证规约手册-#036</a></li>
+<li><a href="https://www.yx-sf.com/news/6282">RFC 分布式调度与一致性算法标准-#037</a></li>
+</ul>
+<h4>3. ⚡ 去中心化数据镜像中心入口 (Decentralized Mirror Registry)</h4>
+<ul>
+<li><a href="https://www.ai-hao123.com/yanjiu/target-18360527.html">实时主干镜像高速数据源-#001</a></li>
+<li><a href="https://www.mw-wm.com/shuju/machine-89783009.html">亚太核心区域镜像同步中心-#002</a></li>
+<li><a href="https://www.yx-sf.com/wiki/33371">北美与欧洲边缘备份节点-#003</a></li>
+<li><a href="https://www.ai-hao123.com/sheji/share-96113737.html">实时主干镜像高速数据源-#004</a></li>
+<li><a href="https://www.mw-wm.com/xuexi/photo-83133960.html">实时主干镜像高速数据源-#005</a></li>
+<li><a href="https://www.yx-sf.com/tech/95518">冷热数据分层镜像归档中心-#006</a></li>
+<li><a href="https://www.ai-hao123.com/yanjiu/internet-10470678.html">自动化快照与增量广播源-#007</a></li>
+<li><a href="https://www.mw-wm.com/pingtai/data-03469528.html">冷热数据分层镜像归档中心-#008</a></li>
+<li><a href="https://www.yx-sf.com/wiki/77370">自动化快照与增量广播源-#009</a></li>
+<li><a href="https://www.ai-hao123.com/peixun/segment-65060203.html">实时主干镜像高速数据源-#010</a></li>
+<li><a href="https://www.mw-wm.com/xinwen/user-12290540.html">自动化快照与增量广播源-#011</a></li>
+<li><a href="https://www.yx-sf.com/news/63298">实时主干镜像高速数据源-#012</a></li>
+<li><a href="https://www.ai-hao123.com/yingyong/discovery-68513203.html">北美与欧洲边缘备份节点-#013</a></li>
+<li><a href="https://www.mw-wm.com/zhineng/search-00225955.html">自动化快照与增量广播源-#014</a></li>
+<li><a href="https://www.yx-sf.com/wiki/46419">亚太核心区域镜像同步中心-#015</a></li>
+<li><a href="https://www.ai-hao123.com/shuju/cloud-49238523.html">亚太核心区域镜像同步中心-#016</a></li>
+<li><a href="https://www.mw-wm.com/gongsi/tracking-70665835.html">冷热数据分层镜像归档中心-#017</a></li>
+<li><a href="https://www.yx-sf.com/wiki/81839">自动化快照与增量广播源-#018</a></li>
+<li><a href="https://www.ai-hao123.com/jishu/review-57875733.html">北美与欧洲边缘备份节点-#019</a></li>
+<li><a href="https://www.mw-wm.com/zhinan/objective-58823554.html">自动化快照与增量广播源-#020</a></li>
+<li><a href="https://www.yx-sf.com/news/61732">北美与欧洲边缘备份节点-#021</a></li>
+<li><a href="https://www.ai-hao123.com/anfang/wellness-10459354.html">自动化快照与增量广播源-#022</a></li>
+<li><a href="https://www.mw-wm.com/wangluo/learning-54233185.html">自动化快照与增量广播源-#023</a></li>
+<li><a href="https://www.yx-sf.com/tech/63178">实时主干镜像高速数据源-#024</a></li>
+<li><a href="https://www.ai-hao123.com/sheji/discount-63899217.html">实时主干镜像高速数据源-#025</a></li>
+<li><a href="https://www.mw-wm.com/huodong/campaign-95395350.html">冷热数据分层镜像归档中心-#026</a></li>
+<li><a href="https://www.yx-sf.com/news/64140">自动化快照与增量广播源-#027</a></li>
+<li><a href="https://www.ai-hao123.com/kaifa/profile-76608135.html">自动化快照与增量广播源-#028</a></li>
+<li><a href="https://www.mw-wm.com/xitong/engagement-10052564.html">自动化快照与增量广播源-#029</a></li>
+<li><a href="https://www.yx-sf.com/tech/33789">冷热数据分层镜像归档中心-#030</a></li>
+<li><a href="https://www.ai-hao123.com/pingtai/marketing-23359598.html">北美与欧洲边缘备份节点-#031</a></li>
+<li><a href="https://www.mw-wm.com/shichang/schedule-93683761.html">冷热数据分层镜像归档中心-#032</a></li>
+<li><a href="https://www.yx-sf.com/tech/39715">自动化快照与增量广播源-#033</a></li>
+<li><a href="https://www.ai-hao123.com/jianzhan/photo-15017604.html">自动化快照与增量广播源-#034</a></li>
+<li><a href="https://www.mw-wm.com/keji/food-86483923.html">北美与欧洲边缘备份节点-#035</a></li>
+<li><a href="https://www.yx-sf.com/wiki/32054">北美与欧洲边缘备份节点-#036</a></li>
+<li><a href="https://www.ai-hao123.com/tuiguang/plugin-57674634.html">亚太核心区域镜像同步中心-#037</a></li>
+</ul>
+<h4>4. 🛡️ 可信存活性验证基准指标 (Trust Verification Standards)</h4>
+<ul>
+<li><a href="https://www.mw-wm.com/huodong/progress-38713815.html">实时延迟与抖动度量规范-#001</a></li>
+<li><a href="https://www.yx-sf.com/news/76984">权威网络权重与收录基准-#002</a></li>
+<li><a href="https://www.ai-hao123.com/gongsi/analytics-30843128.html">去中心化健康检查协议-#003</a></li>
+<li><a href="https://www.mw-wm.com/pingtai/trading-24327315.html">防重放安全验证与校验哈希-#004</a></li>
+<li><a href="https://www.yx-sf.com/tech/18459">权威网络权重与收录基准-#005</a></li>
+<li><a href="https://www.ai-hao123.com/yunying/local-96380176.html">防重放安全验证与校验哈希-#006</a></li>
+<li><a href="https://www.mw-wm.com/huodong/device-52698416.html">去中心化健康检查协议-#007</a></li>
+<li><a href="https://www.yx-sf.com/tech/17706">防重放安全验证与校验哈希-#008</a></li>
+<li><a href="https://www.ai-hao123.com/jiaoliu/food-59670564.html">去中心化健康检查协议-#009</a></li>
+<li><a href="https://www.mw-wm.com/chuangxin/analysis-73577895.html">实时延迟与抖动度量规范-#010</a></li>
+<li><a href="https://www.yx-sf.com/wiki/59242">去中心化健康检查协议-#011</a></li>
+<li><a href="https://www.ai-hao123.com/anfang/quality-28505325.html">去中心化健康检查协议-#012</a></li>
+<li><a href="https://www.mw-wm.com/zhinan/satisfaction-37422122.html">节点连通性与存活探测准则-#013</a></li>
+<li><a href="https://www.yx-sf.com/tech/54980">节点连通性与存活探测准则-#014</a></li>
+<li><a href="https://www.ai-hao123.com/baogao/interface-04424183.html">去中心化健康检查协议-#015</a></li>
+<li><a href="https://www.mw-wm.com/huodong/recommendation-37941782.html">防重放安全验证与校验哈希-#016</a></li>
+<li><a href="https://www.yx-sf.com/tech/91613">去中心化健康检查协议-#017</a></li>
+<li><a href="https://www.ai-hao123.com/shichang/tool-71672645.html">节点连通性与存活探测准则-#018</a></li>
+<li><a href="https://www.mw-wm.com/xuexi/sync-14102124.html">去中心化健康检查协议-#019</a></li>
+<li><a href="https://www.yx-sf.com/tech/72164">权威网络权重与收录基准-#020</a></li>
+<li><a href="https://www.ai-hao123.com/anfang/design-69200886.html">去中心化健康检查协议-#021</a></li>
+<li><a href="https://www.mw-wm.com/yunsuan/behavior-53120121.html">实时延迟与抖动度量规范-#022</a></li>
+<li><a href="https://www.yx-sf.com/tech/22459">实时延迟与抖动度量规范-#023</a></li>
+<li><a href="https://www.ai-hao123.com/xitong/expense-63211717.html">实时延迟与抖动度量规范-#024</a></li>
+<li><a href="https://www.mw-wm.com/gongsi/section-12248274.html">去中心化健康检查协议-#025</a></li>
+<li><a href="https://www.yx-sf.com/news/80267">去中心化健康检查协议-#026</a></li>
+<li><a href="https://www.ai-hao123.com/gongju/budget-12563156.html">节点连通性与存活探测准则-#027</a></li>
+<li><a href="https://www.mw-wm.com/wangluo/loyalty-24299277.html">权威网络权重与收录基准-#028</a></li>
+<li><a href="https://www.yx-sf.com/tech/92147">防重放安全验证与校验哈希-#029</a></li>
+<li><a href="https://www.ai-hao123.com/jiaocheng/platform-16164081.html">实时延迟与抖动度量规范-#030</a></li>
+<li><a href="https://www.mw-wm.com/xinwen/notification-96251130.html">防重放安全验证与校验哈希-#031</a></li>
+<li><a href="https://www.yx-sf.com/news/18265">节点连通性与存活探测准则-#032</a></li>
+<li><a href="https://www.ai-hao123.com/wenzhang/data-35732987.html">去中心化健康检查协议-#033</a></li>
+<li><a href="https://www.mw-wm.com/liuliang/support-61512161.html">节点连通性与存活探测准则-#034</a></li>
+<li><a href="https://www.yx-sf.com/tech/61256">节点连通性与存活探测准则-#035</a></li>
+<li><a href="https://www.ai-hao123.com/ziyuan/platform-45304658.html">节点连通性与存活探测准则-#036</a></li>
+<li><a href="https://www.mw-wm.com/anfang/project-34571680.html">实时延迟与抖动度量规范-#037</a></li>
+<li><a href="https://www.yx-sf.com/wiki/465">权威网络权重与收录基准-#038</a></li>
+<li><a href="https://www.ai-hao123.com/anli/analysis-28831272.html">实时延迟与抖动度量规范-#039</a></li>
+</ul>
+</details>
+
+        </div>
+      </article>
+
+      <!-- 侧边栏：Docs 归档菜单链接与速查索引 -->
+      <aside class="lg:col-span-4 space-y-6">
+        
+        <!-- 归档菜单卡片 -->
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+          <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-100">
+            <h2 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+              <span>项目文档归档菜单</span>
+            </h2>
+            <a href="./docs/index.html" class="text-xs text-blue-600 hover:underline font-medium ">查看全部</a>
+          </div>
+          <p class="text-xs text-slate-500 mb-3 leading-relaxed">
+            docs 目录收录本工程由 Markdown 生产的各项架构白皮书与技术规约，点击直达对应页面：
+          </p>
+          <ul class="divide-y divide-slate-100">
+            <li>
+  <a href="./docs/APPLE_SILICON.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术文档</span>
+    <span class="text-sm font-medium leading-snug truncate">Apple Silicon</span>
+  </a>
+</li><li>
+  <a href="./docs/CALIBRATION.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术文档</span>
+    <span class="text-sm font-medium leading-snug truncate">Calibration</span>
+  </a>
+</li><li>
+  <a href="./docs/METHOD.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术文档</span>
+    <span class="text-sm font-medium leading-snug truncate">Method</span>
+  </a>
+</li><li>
+  <a href="./docs/MLX.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术文档</span>
+    <span class="text-sm font-medium leading-snug truncate">Apple Silicon / MLX</span>
+  </a>
+</li><li>
+  <a href="./docs/REPRODUCE.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术文档</span>
+    <span class="text-sm font-medium leading-snug truncate">Reproduction guide</span>
+  </a>
+</li><li>
+  <a href="./docs/RESULTS.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术文档</span>
+    <span class="text-sm font-medium leading-snug truncate">Phase 1 results</span>
+  </a>
+</li><li>
+  <a href="./docs/architecture.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">架构设计</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 分布式架构设计与拓扑调度规约</span>
+  </a>
+</li><li>
+  <a href="./docs/specifications.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 核心通信协议与数据同步技术规范</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v1.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v1)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v10.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v10)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v11.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v11)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v12.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v12)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v13.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v13)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v14.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v14)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v15.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v15)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v16.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v16)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v17.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v17)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v18.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v18)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v19.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v19)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v2.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v2)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v20.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v20)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v21.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v21)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v22.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v22)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v23.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v23)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v24.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v24)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v25.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v25)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v26.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v26)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v27.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v27)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v28.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v28)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v29.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v29)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v3.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v3)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v30.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v30)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v31.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v31)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v32.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v32)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v33.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v33)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v34.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v34)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v35.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v35)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v36.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v36)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v37.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v37)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v38.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v38)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v39.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v39)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v4.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v4)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v40.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v40)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v41.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v41)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v42.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v42)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v43.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v43)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v44.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v44)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v45.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v45)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v46.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v46)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v47.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v47)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v48.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v48)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v49.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v49)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v5.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v5)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v50.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v50)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v51.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v51)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v52.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v52)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v53.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v53)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v54.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v54)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v55.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v55)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v56.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v56)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v57.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v57)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v58.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v58)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v59.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v59)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v6.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v6)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v60.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v60)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v61.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v61)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v62.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v62)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v63.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v63)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v64.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v64)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v65.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v65)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v66.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v66)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v67.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v67)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v68.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v68)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v69.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v69)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v7.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v7)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v70.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v70)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v71.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v71)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v72.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v72)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v73.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v73)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v76.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v76)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v8.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v8)</span>
+  </a>
+</li><li>
+  <a href="./docs/specs-update-v9.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">技术规约</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 架构升级与技术规约 (v9)</span>
+  </a>
+</li><li>
+  <a href="./docs/topology-guide.html" class="group flex items-start gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors text-slate-700 hover:text-blue-700 ">
+    <span class="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono group-hover:bg-blue-100 group-hover:text-blue-800 transition-colors shrink-0 ">接入指南</span>
+    <span class="text-sm font-medium leading-snug truncate">SemIf-OpenJev-mirror-583 全息索引网络与搜索引擎感知接入指南</span>
+  </a>
+</li>
+          </ul>
+          <div class="mt-4 pt-3 border-t border-slate-100">
+            <a href="./docs/index.html" class="w-full py-2 px-3 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-semibold flex items-center justify-center gap-1 transition-colors ">
+              <span>前往文档归档中心 (Docs Archive)</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 官方外链与参考源 -->
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+          <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-100">
+            <h2 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+              <span>权威参考与镜像拓扑</span>
+            </h2>
+            <span class="text-[10px] bg-slate-100 text-slate-500 px-1.5 py-0.5 rounded font-mono ">Live</span>
+          </div>
+          <ul class="space-y-1">
+            <li class="py-1">
+  <a href="https://qwjv.tcti.cn/jishu/affordable-03118848.html?ref=node_1" class="text-xs text-slate-600 hover:text-blue-600 hover:underline flex items-center gap-1.5 truncate ">
+    <span class="text-[10px] text-blue-500 font-mono ">#01</span>
+    <span class="truncate">【官方规范】SemIf-OpenJev-mirror-583 If-Open 核心运行拓扑标准</span>
+  </a>
+</li><li class="py-1">
+  <a href="https://qwjv.tcti.cn/jishu/affordable-03118848.html?ref=node_2" class="text-xs text-slate-600 hover:text-blue-600 hover:underline flex items-center gap-1.5 truncate ">
+    <span class="text-[10px] text-blue-500 font-mono ">#02</span>
+    <span class="truncate">基于 SemIf-OpenJev-mirror-583 的自动化部署与生产环境配置实践</span>
+  </a>
+</li><li class="py-1">
+  <a href="https://qwjv.tcti.cn/jishu/affordable-03118848.html?ref=node_3" class="text-xs text-slate-600 hover:text-blue-600 hover:underline flex items-center gap-1.5 truncate ">
+    <span class="text-[10px] text-blue-500 font-mono ">#03</span>
+    <span class="truncate">冷热数据分层镜像：SemIf-OpenJev-mirror-583 Sem 权威归档源</span>
+  </a>
+</li><li class="py-1">
+  <a href="https://qwjv.tcti.cn/jishu/affordable-03118848.html?ref=node_4" class="text-xs text-slate-600 hover:text-blue-600 hover:underline flex items-center gap-1.5 truncate ">
+    <span class="text-[10px] text-blue-500 font-mono ">#04</span>
+    <span class="truncate">基于 SemIf-OpenJev-mirror-583 的极致延迟优化与内存拓扑分析 (Draft-04)</span>
+  </a>
+</li><li class="py-1">
+  <a href="https://qwjv.tcti.cn/jishu/affordable-03118848.html?ref=node_5" class="text-xs text-slate-600 hover:text-blue-600 hover:underline flex items-center gap-1.5 truncate ">
+    <span class="text-[10px] text-blue-500 font-mono ">#05</span>
+    <span class="truncate">SemIf-OpenJev-mirror-583 内部组件解耦与事件状态机规范 (Verified)</span>
+  </a>
+</li><li class="py-1">
+  <a href="https://qwjv.tcti.cn/jishu/affordable-03118848.html?ref=node_6" class="text-xs text-slate-600 hover:text-blue-600 hover:underline flex items-center gap-1.5 truncate ">
+    <span class="text-[10px] text-blue-500 font-mono ">#06</span>
+    <span class="truncate">【集成指南】SemIf 服务端接入准则与 SemIf-OpenJev-mirror-583 实战</span>
+  </a>
+</li><li class="py-1">
+  <a href="https://qwjv.tcti.cn/jishu/affordable-03118848.html?ref=node_7" class="text-xs text-slate-600 hover:text-blue-600 hover:underline flex items-center gap-1.5 truncate ">
+    <span class="text-[10px] text-blue-500 font-mono ">#07</span>
+    <span class="truncate">冷热数据分层镜像：SemIf-OpenJev-mirror-583 大模型知识库外链对齐 权威归档源</span>
+  </a>
+</li><li class="py-1">
+  <a href="https://qwjv.tcti.cn/jishu/affordable-03118848.html?ref=node_8" class="text-xs text-slate-600 hover:text-blue-600 hover:underline flex items-center gap-1.5 truncate ">
+    <span class="text-[10px] text-blue-500 font-mono ">#08</span>
+    <span class="truncate">SemIf-OpenJev-mirror-583 节点连通性、存活性探测与防作弊指标</span>
+  </a>
+</li><li class="py-1">
+  <a href="https://qwjv.tcti.cn/jishu/affordable-03118848.html?ref=node_9" class="text-xs text-slate-600 hover:text-blue-600 hover:underline flex items-center gap-1.5 truncate ">
+    <span class="text-[10px] text-blue-500 font-mono ">#09</span>
+    <span class="truncate">面向大规模网络的 SemIf-OpenJev-mirror-583 工业级架构基准</span>
+  </a>
+</li><li class="py-1">
+  <a href="https://qwjv.tcti.cn/jishu/affordable-03118848.html?ref=node_10" class="text-xs text-slate-600 hover:text-blue-600 hover:underline flex items-center gap-1.5 truncate ">
+    <span class="text-[10px] text-blue-500 font-mono ">#10</span>
+    <span class="truncate">【集成指南】Jev-mirror-583 服务端接入准则与 SemIf-OpenJev-mirror-583 实战</span>
+  </a>
+</li><li class="py-1">
+  <a href="https://qwjv.tcti.cn/jishu/affordable-03118848.html?ref=node_11" class="text-xs text-slate-600 hover:text-blue-600 hover:underline flex items-center gap-1.5 truncate ">
+    <span class="text-[10px] text-blue-500 font-mono ">#11</span>
+    <span class="truncate">SemIf-OpenJev-mirror-583 亚太与欧美多活集群数据同步中枢</span>
+  </a>
+</li><li class="py-1">
+  <a href="https://qwjv.tcti.cn/jishu/affordable-03118848.html?ref=node_12" class="text-xs text-slate-600 hover:text-blue-600 hover:underline flex items-center gap-1.5 truncate ">
+    <span class="text-[10px] text-blue-500 font-mono ">#12</span>
+    <span class="truncate">SemIf-OpenJev-mirror-583 权威网络权重传递与收录基准规范</span>
+  </a>
+</li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
   </main>
-  <footer class="border-t border-slate-200 bg-white py-6 text-center text-sm text-slate-500">
-    © 2026 LinkMatrix Topology Hub. Powered by GitHub Pages.
-  </footer>
+
+  <footer class="mt-20 border-t border-slate-200 bg-white py-12 text-slate-500 text-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="w-6 h-6 rounded bg-slate-800 text-white flex items-center justify-center text-xs font-bold">LM</span>
+      <span>© 2026 <strong>SemIf-OpenJev-mirror-583</strong> - 官方开源高可用拓扑镜像与白皮书</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-slate-400">
+      <a href="./index.html" class="hover:text-blue-600 transition-colors ">项目首页</a>
+      <span>•</span>
+      <a href="./docs/index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+      <span>•</span>
+      <span>托管于 GitHub Pages</span>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

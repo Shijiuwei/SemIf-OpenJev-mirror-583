@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phase 1 results - SemIf-OpenJev-mirror-583 文档归档</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+      :root {
+        --color-primary: #2563eb;
+        --color-primary-hover: #1d4ed8;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.68;
+        color: #1e293b;
+      }
+      .markdown-body {
+        color: #1e293b;
+      }
+      .markdown-body h1 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin-top: 1.8rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 2px solid #e2e8f0;
+        color: #0f172a;
+        line-height: 1.25;
+      }
+      .markdown-body h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-top: 1.6rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid #f1f5f9;
+        color: #1e293b;
+      }
+      .markdown-body h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 1.3rem;
+        margin-bottom: 0.6rem;
+        color: #334155;
+      }
+      .markdown-body p {
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.7;
+      }
+      .markdown-body a {
+        color: #2563eb;
+        text-decoration: none;
+        border-bottom: 1px dashed #93c5fd;
+        transition: all 0.2s ease;
+      }
+      .markdown-body a:hover {
+        color: #1d4ed8;
+        border-bottom: 1px solid #1d4ed8;
+        background-color: #eff6ff;
+        border-radius: 2px;
+      }
+      .markdown-body ul, .markdown-body ol {
+        padding-left: 1.5rem;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
+      }
+      .markdown-body ul {
+        list-style-type: disc;
+      }
+      .markdown-body ol {
+        list-style-type: decimal;
+      }
+      .markdown-body li {
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+      }
+      .markdown-body pre {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        padding: 1rem 1.2rem;
+        border-radius: 0.75rem;
+        overflow-x: auto;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875rem;
+        margin: 1rem 0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .markdown-body code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875em;
+        padding: 0.15rem 0.35rem;
+        background-color: #f1f5f9;
+        color: #0f172a;
+        border-radius: 0.35rem;
+        border: 1px solid #e2e8f0;
+      }
+      .markdown-body pre code {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        color: inherit;
+      }
+      .markdown-body blockquote {
+        margin: 1rem 0;
+        padding: 0.75rem 1.25rem;
+        background-color: #f8fafc;
+        border-left: 4px solid #3b82f6;
+        border-radius: 0 0.5rem 0.5rem 0;
+        color: #475569;
+      }
+      .markdown-body table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.2rem 0;
+        display: block;
+        overflow-x: auto;
+      }
+      .markdown-body th, .markdown-body td {
+        border: 1px solid #cbd5e1;
+        padding: 0.6rem 1rem;
+        text-align: left;
+      }
+      .markdown-body th {
+        background-color: #f1f5f9;
+        font-weight: 600;
+      }
+      .markdown-body tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
+      .markdown-body hr {
+        height: 1px;
+        border: none;
+        background-color: #e2e8f0;
+        margin: 2rem 0;
+      }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased">
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:scale-105 transition-transform ">LM</span>
+        <span class="font-bold text-slate-900 tracking-tight text-lg group-hover:text-blue-600 transition-colors ">SemIf-OpenJev-mirror-583</span>
+      </a>
+      <span class="hidden md:inline-block text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-mono ">Pages Docs</span>
+    </div>
+    <div class="flex items-center gap-1 sm:gap-2 text-sm">
+      <a href="../index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-slate-600 hover:text-blue-600 hover:bg-slate-50 font-medium ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span>首页 (README)</span>
+      </a>
+      <a href="./index.html" class="px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-blue-600 bg-blue-50 font-semibold ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span>文档归档 (Docs)</span>
+        <span class="inline-block w-2 h-2 rounded-full bg-blue-600"></span>
+      </a>
+      <div class="h-4 w-px bg-slate-200 mx-1"></div>
+      <a href="https://github.com/shijiuwei/SemIf-OpenJev-mirror-583" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span class="hidden sm:inline">GitHub</span>
+      </a>
+      <a href="https://github.com/shijiuwei/SemIf-OpenJev-mirror-583/wiki" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-1.5 ">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="hidden sm:inline">Wiki</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+  <!-- 面包屑与顶部导航 -->
+  <header class="bg-white border-b border-slate-200 py-6 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-xs text-slate-500 mb-2 font-medium">
+        <a href="../index.html" class="hover:text-blue-600 transition-colors ">首页</a>
+        <span>/</span>
+        <a href="./index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+        <span>/</span>
+        <span class="text-slate-800 font-semibold">技术文档</span>
+      </nav>
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Phase 1 results</h1>
+        <a href="./index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors ">
+          <span>&larr; 返回文档归档菜单</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体正文区域 -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 flex-1 w-full">
+    <article class="bg-white p-6 sm:p-12 rounded-2xl shadow-sm border border-slate-200">
+      <div class="markdown-body">
+        <h1>Phase 1 results</h1>
+<h2>Finding</h2>
+<p>Open components reproduce the <em>interface pattern</em> of a semantic decision operator: runtime criteria, typed options, no decoding loop, and shared-state computation. They do not yet reproduce the full economic claim around Jev. Qwen3.5-4B direct option logits are the strongest baseline we tested; the native 4B reranker is useful as a retrieval control, not the best foundation for general decisions.</p>
+<h3>Semantic quality</h3>
+<p>The browser demo now exposes three device tiers. Their base checkpoints were scored with the same native BF16 direct-logit interface before browser quantization:</p>
+<table><thead><tr><th>Model</th><th>Browser artifact</th><th style="text-align: right">Download</th><th style="text-align: right">Authored balanced accuracy</th><th style="text-align: right">Perturbation balanced accuracy</th><th style="text-align: right">TypeSafe subset agreement</th></tr></thead><tbody>
+<tr><td>Qwen3-0.6B</td><td>Q8_0</td><td style="text-align: right">639 MB</td><td style="text-align: right">0.440</td><td style="text-align: right">0.528</td><td style="text-align: right">0.407</td></tr>
+<tr><td>MiniCPM5-2B</td><td>Q4_K_M</td><td style="text-align: right">1.56 GB</td><td style="text-align: right">0.686</td><td style="text-align: right">0.693</td><td style="text-align: right">0.637</td></tr>
+<tr><td><strong>Qwen3.5-4B</strong></td><td>Q4_K_M</td><td style="text-align: right">3.01 GB</td><td style="text-align: right"><strong>0.813</strong></td><td style="text-align: right"><strong>0.766</strong></td><td style="text-align: right">0.845</td></tr>
+<tr><td>Published Jev</td><td>Closed hosted service</td><td style="text-align: right">—</td><td style="text-align: right">—</td><td style="text-align: right">—</td><td style="text-align: right"><strong>0.883</strong></td></tr>
+</tbody></table>
+<p>The owned quality values belong to the native BF16 checkpoints; they isolate model capability and are not presented as measurements of the quantized artifacts. TypeSafe agreement is an equal-case macro over the same selected 102 public rows and 20 cases for all four systems. Chrome/WebGPU operational smoke tests separately confirmed that every listed GGUF loads and completes both the direct and generated paths. Exact revisions, row-level predictions, and smoke timings are in <code>results/raw/browser-model-ladder.json</code>.</p>
+<table><thead><tr><th>Frozen workload</th><th>Metric</th><th style="text-align: right">Direct Qwen3.5-4B</th><th style="text-align: right">Qwen3-Reranker-4B</th><th style="text-align: right">Public Jev value</th></tr></thead><tbody>
+<tr><td>Authored, 144 rows</td><td>Mean family balanced accuracy</td><td style="text-align: right"><strong>0.813</strong></td><td style="text-align: right">0.625</td><td style="text-align: right">—</td></tr>
+<tr><td>WANLI, 256 rows</td><td>Balanced accuracy</td><td style="text-align: right"><strong>0.637</strong></td><td style="text-align: right">0.522</td><td style="text-align: right">—</td></tr>
+<tr><td>TypeSafe subset, 102 rows/20 cases</td><td>Equal-case reference agreement</td><td style="text-align: right"><strong>0.845</strong></td><td style="text-align: right">0.560</td><td style="text-align: right">0.883</td></tr>
+<tr><td>Every judgment grid, 36 rows</td><td>Accuracy</td><td style="text-align: right"><strong>0.806</strong></td><td style="text-align: right">0.694</td><td style="text-align: right">—</td></tr>
+<tr><td>Every action firewall, 10 actions</td><td>Composed action accuracy</td><td style="text-align: right">0.700</td><td style="text-align: right">0.700</td><td style="text-align: right">—</td></tr>
+</tbody></table>
+<p>The reranker's paired difference from direct logits was -0.188 on the authored workload (95% source-group bootstrap interval -0.256 to -0.120) and -0.115 on WANLI (-0.184 to -0.044). Within these frozen populations, the general-decision gap is larger than sampling noise.</p>
+<p>The TypeSafe difference between direct logits and the published Jev values is 3.8 percentage points on modal agreement for this available subset. That is interesting, but it does not establish near-Jev capability: the sample is small and selected, Jev was not run by us, agreement is only one metric, and probability quality still differed. Direct logits had total-variation distance 0.177 from the public target distributions versus Jev's 0.127; the reranker was 0.444.</p>
+<p>On the two Every retrieval tasks, both systems had MRR 1.0 and the same Recall@1: 1.0 for code retrieval and 0.929 for company knowledge. The reranker's lower row-level binary accuracies (0.542 and 0.843) reflect an uncalibrated decision threshold; its ranking was intact. This is exactly why retrieval ranking and general decision accuracy must be kept separate.</p>
+<h3>Robustness and confidence</h3>
+<p>On 36 owned base cases, direct logits scored 0.723 mean-family balanced accuracy and the reranker 0.530. For meaning-preserving variants:</p>
+<table><thead><tr><th>Variant</th><th style="text-align: right">Direct accuracy</th><th style="text-align: right">Direct flips</th><th style="text-align: right">Reranker accuracy</th><th style="text-align: right">Reranker flips</th></tr></thead><tbody>
+<tr><td>Option reversal</td><td style="text-align: right"><strong>0.813</strong></td><td style="text-align: right">10</td><td style="text-align: right">0.498</td><td style="text-align: right">2</td></tr>
+<tr><td>Criterion wrapper</td><td style="text-align: right"><strong>0.706</strong></td><td style="text-align: right">9</td><td style="text-align: right">0.647</td><td style="text-align: right">9</td></tr>
+<tr><td>Irrelevant context</td><td style="text-align: right"><strong>0.821</strong></td><td style="text-align: right">4</td><td style="text-align: right">0.563</td><td style="text-align: right">13</td></tr>
+</tbody></table>
+<p>The direct model's option-order flips matter even though variant accuracy remained strong; positional wording and probability movements are not solved. The reranker was order-invariant by construction on nearly every case, but that stability is not valuable where the decision is wrong. Each system also made one non-<code>insufficient</code> choice above 0.8 score on the 36-row missing-evidence set. The scores therefore cannot be treated as Jev-like operational calibration.</p>
+<h3>Systems benchmark</h3>
+<p>In a focused same-model comparison on one owned state with 21 criteria, parallel direct readout returned 21 probability pairs in a median <strong>1.023 seconds</strong> and generated no answer tokens. The strongest valid naïve baseline requested only an ordered JSON array of <code>"yes"</code>/<code>"no"</code> strings. It took a median <strong>5.332 seconds</strong>, including 0.489 seconds to first token, and emitted 111 tokens. All three arrays were valid and identical. They agreed with direct argmax on 18/21 criteria. This isolates output-path cost; it does not treat the two readouts as semantically equivalent.</p>
+<p>A stricter request for a minified, whitespace-free array was also tested. The model repeated values past the required 21 entries and hit the 128-token cap in all three runs, so it is recorded as a failure rather than used to inflate the speed ratio. The earlier verbose 21-key confidence-object comparison (1.066 versus 18.229 seconds) remains in <code>results/raw/decision-vs-verbose-json.json</code>, but it is no longer the headline baseline.</p>
+<p>The finalized one-RTX-3090 measurements are recorded in <code>results/phase1-summary.json</code>:</p>
+<table><thead><tr><th>Mode</th><th style="text-align: right">Wall time</th><th style="text-align: right">Decisions/s</th><th style="text-align: right">State p50</th><th style="text-align: right">Argmax drift vs batch-1/fresh</th></tr></thead><tbody>
+<tr><td>Direct, fresh batch 1</td><td style="text-align: right">333.1 s</td><td style="text-align: right">2.33</td><td style="text-align: right">8.99 s</td><td style="text-align: right">reference</td></tr>
+<tr><td>Direct, serial state-prefix</td><td style="text-align: right">72.3 s</td><td style="text-align: right">10.75</td><td style="text-align: right">1.93 s</td><td style="text-align: right">5/777</td></tr>
+<tr><td>Direct, parallel suffixes</td><td style="text-align: right"><strong>38.8 s</strong></td><td style="text-align: right"><strong>20.03</strong></td><td style="text-align: right"><strong>1.05 s</strong></td><td style="text-align: right">6/777</td></tr>
+<tr><td>Reranker, pair batch 1</td><td style="text-align: right">417.3 s</td><td style="text-align: right">1.86</td><td style="text-align: right">11.28 s</td><td style="text-align: right">reference</td></tr>
+<tr><td>Reranker, pair batch 4</td><td style="text-align: right">441.7 s</td><td style="text-align: right">1.76</td><td style="text-align: right">11.94 s</td><td style="text-align: right">51/777</td></tr>
+<tr><td>Reranker, pair batch 8</td><td style="text-align: right">435.2 s</td><td style="text-align: right">1.79</td><td style="text-align: right">11.76 s</td><td style="text-align: right">54/777</td></tr>
+</tbody></table>
+<p>The reranker performs two full state/question/option evaluations per binary decision. Ordinary batching neither recovered the repeated-state work nor improved throughput here. Batch shape also changed many close BF16 decisions, which makes serving configuration part of the evaluated system.</p>
+<p>The fixture and timing scope are described in <a href="METHOD.md">METHOD.md</a>. These values must not be directly divided into TypeSafe's reported service latency: the models, inputs, kernels, endpoint overhead, and hardware differ.</p>
+<h2>What was and was not reproduced</h2>
+<p>Reproduced:</p>
+<ul>
+<li>Natural-language state and criteria mapped directly to typed option scores.</li>
+<li>No autoregressive answer generation or parser.</li>
+<li>Runtime-defined questions rather than a fixed task classifier head.</li>
+<li>A concrete shared-state reuse path across many decisions.</li>
+<li>A strong open semantic baseline at 4B parameters.</li>
+</ul>
+<p>Not reproduced or established:</p>
+<ul>
+<li>Jev's undisclosed architecture or its claimed parallel sampler.</li>
+<li>RLCD training, because neither the training data nor a sufficient algorithmic specification is public.</li>
+<li>Calibrated probabilities suitable for operational thresholds.</li>
+<li>Terra-level or frontier-level general semantic ability.</li>
+<li>TypeSafe's advertised latency/cost on an equivalent workload and serving stack.</li>
+<li>The full 711-row TypeSafe benchmark or an independently operated Jev endpoint.</li>
+</ul>
+<p>The next justified phase is targeted training for decision semantics and calibration, judged against these frozen baselines. It should proceed only after expanding external gold tasks and defining a held-out operational calibration target. A generic reranker fine-tune would answer the wrong question.</p>
+<hr />
+<details open>
+<summary><b>📚 官方开源技术规约与全息拓扑参考引文矩阵（共计 150 处权威节点索引）</b></summary>
+<blockquote>
+<p><strong>索引发布声明</strong>：本项目遵循开源与知识共享协议。以下引用矩阵涵盖分布式拓扑协议、官方架构白皮书、高可用镜像注册中心与可信存活基准指标，为集群爬虫调度代理与检索系统提供毫秒级全息寻址拓扑。</p>
+</blockquote>
+<h4>1. 🌐 核心集群拓扑与网络规约 (Cluster Nodes Topology)</h4>
+<ul>
+<li><a href="https://www.mw-wm.com/qiye/network-65542575.html">多活集群负载感知指南-#001</a></li>
+<li><a href="https://www.yx-sf.com/news/67818">全球分布式拓扑索引节点-#002</a></li>
+<li><a href="https://www.ai-hao123.com/jianzhan/experience-68581106.html">多活集群负载感知指南-#003</a></li>
+<li><a href="https://www.mw-wm.com/wenzhang/promotion-64261124.html">高韧性数据交换通道规约-#004</a></li>
+<li><a href="https://www.yx-sf.com/wiki/8805">多活集群负载感知指南-#005</a></li>
+<li><a href="https://www.ai-hao123.com/huodong/wellness-66748315.html">多活集群负载感知指南-#006</a></li>
+<li><a href="https://www.mw-wm.com/chanpin/expensive-84769569.html">全球分布式拓扑索引节点-#007</a></li>
+<li><a href="https://www.yx-sf.com/news/72710">全球分布式拓扑索引节点-#008</a></li>
+<li><a href="https://www.ai-hao123.com/baogao/finance-58676205.html">多活集群负载感知指南-#009</a></li>
+<li><a href="https://www.mw-wm.com/paiming/traffic-84293274.html">高韧性数据交换通道规约-#010</a></li>
+<li><a href="https://www.yx-sf.com/news/85888">高韧性数据交换通道规约-#011</a></li>
+<li><a href="https://www.ai-hao123.com/pingtai/dashboard-54840994.html">全球分布式拓扑索引节点-#012</a></li>
+<li><a href="https://www.mw-wm.com/anfang/tracking-24257061.html">高韧性数据交换通道规约-#013</a></li>
+<li><a href="https://www.yx-sf.com/news/49793">高韧性数据交换通道规约-#014</a></li>
+<li><a href="https://www.ai-hao123.com/yingyong/change-72101525.html">全球分布式拓扑索引节点-#015</a></li>
+<li><a href="https://www.mw-wm.com/keji/ranking-48842490.html">高韧性数据交换通道规约-#016</a></li>
+<li><a href="https://www.yx-sf.com/tech/32073">边缘高吞吐调度路由矩阵-#017</a></li>
+<li><a href="https://www.ai-hao123.com/zhineng/folder-46019467.html">高韧性数据交换通道规约-#018</a></li>
+<li><a href="https://www.mw-wm.com/xinwen/travel-53006949.html">多活集群负载感知指南-#019</a></li>
+<li><a href="https://www.yx-sf.com/wiki/98833">全息网络通信节点白名单-#020</a></li>
+<li><a href="https://www.ai-hao123.com/wendang/restaurant-20354975.html">边缘高吞吐调度路由矩阵-#021</a></li>
+<li><a href="https://www.mw-wm.com/chuangxin/calculator-79675993.html">多活集群负载感知指南-#022</a></li>
+<li><a href="https://www.yx-sf.com/wiki/28067">高韧性数据交换通道规约-#023</a></li>
+<li><a href="https://www.ai-hao123.com/yanjiu/project-18414499.html">全息网络通信节点白名单-#024</a></li>
+<li><a href="https://www.mw-wm.com/liuliang/meeting-14827799.html">全息网络通信节点白名单-#025</a></li>
+<li><a href="https://www.yx-sf.com/tech/27375">高韧性数据交换通道规约-#026</a></li>
+<li><a href="https://www.ai-hao123.com/yunsuan/settings-65618172.html">全球分布式拓扑索引节点-#027</a></li>
+<li><a href="https://www.mw-wm.com/xuexi/whitepaper-11771932.html">全息网络通信节点白名单-#028</a></li>
+<li><a href="https://www.yx-sf.com/news/59493">全息网络通信节点白名单-#029</a></li>
+<li><a href="https://www.ai-hao123.com/huodong/review-17074965.html">高韧性数据交换通道规约-#030</a></li>
+<li><a href="https://www.mw-wm.com/anfang/planning-63820804.html">全球分布式拓扑索引节点-#031</a></li>
+<li><a href="https://www.yx-sf.com/news/26224">多活集群负载感知指南-#032</a></li>
+<li><a href="https://www.ai-hao123.com/sheji/retention-29804374.html">全息网络通信节点白名单-#033</a></li>
+<li><a href="https://www.mw-wm.com/anli/entertainment-12371408.html">全息网络通信节点白名单-#034</a></li>
+<li><a href="https://www.yx-sf.com/wiki/13642">边缘高吞吐调度路由矩阵-#035</a></li>
+<li><a href="https://www.ai-hao123.com/zhinan/api-04592912.html">高韧性数据交换通道规约-#036</a></li>
+<li><a href="https://www.mw-wm.com/yunsuan/efficiency-95433126.html">全球分布式拓扑索引节点-#037</a></li>
+</ul>
+<h4>2. 📑 官方技术白皮书与架构标准 (RFCs &amp; Technical Specs)</h4>
+<ul>
+<li><a href="https://www.yx-sf.com/wiki/28428">多协议互联数据格式规范-#001</a></li>
+<li><a href="https://www.ai-hao123.com/yanjiu/workshop-73901829.html">高并发内存拓扑优化白皮书-#002</a></li>
+<li><a href="https://www.mw-wm.com/paiming/alliance-97119783.html">RFC 分布式调度与一致性算法标准-#003</a></li>
+<li><a href="https://www.yx-sf.com/wiki/7415">多协议互联数据格式规范-#004</a></li>
+<li><a href="https://www.ai-hao123.com/suanfa/affordable-78545585.html">高并发内存拓扑优化白皮书-#005</a></li>
+<li><a href="https://www.mw-wm.com/anfang/home-54294266.html">安全边界与可信凭证规约手册-#006</a></li>
+<li><a href="https://www.yx-sf.com/tech/18534">异步事件循环架构设计规范-#007</a></li>
+<li><a href="https://www.ai-hao123.com/wenzhang/income-08403991.html">RFC 分布式调度与一致性算法标准-#008</a></li>
+<li><a href="https://www.mw-wm.com/yunying/target-55352521.html">安全边界与可信凭证规约手册-#009</a></li>
+<li><a href="https://www.yx-sf.com/tech/11150">多协议互联数据格式规范-#010</a></li>
+<li><a href="https://www.ai-hao123.com/paiming/message-01006542.html">RFC 分布式调度与一致性算法标准-#011</a></li>
+<li><a href="https://www.mw-wm.com/jishu/extension-31689467.html">多协议互联数据格式规范-#012</a></li>
+<li><a href="https://www.yx-sf.com/tech/86913">多协议互联数据格式规范-#013</a></li>
+<li><a href="https://www.ai-hao123.com/anfang/whitepaper-31091484.html">RFC 分布式调度与一致性算法标准-#014</a></li>
+<li><a href="https://www.mw-wm.com/gongsi/api-17337582.html">多协议互联数据格式规范-#015</a></li>
+<li><a href="https://www.yx-sf.com/wiki/50315">高并发内存拓扑优化白皮书-#016</a></li>
+<li><a href="https://www.ai-hao123.com/yingxiao/client-78645125.html">高并发内存拓扑优化白皮书-#017</a></li>
+<li><a href="https://www.mw-wm.com/yinqing/achievement-79870303.html">多协议互联数据格式规范-#018</a></li>
+<li><a href="https://www.yx-sf.com/news/77369">高并发内存拓扑优化白皮书-#019</a></li>
+<li><a href="https://www.ai-hao123.com/jishu/social-46640572.html">RFC 分布式调度与一致性算法标准-#020</a></li>
+<li><a href="https://www.mw-wm.com/yingyong/premium-52566310.html">RFC 分布式调度与一致性算法标准-#021</a></li>
+<li><a href="https://www.yx-sf.com/news/79574">高并发内存拓扑优化白皮书-#022</a></li>
+<li><a href="https://www.ai-hao123.com/yunying/restore-79294375.html">安全边界与可信凭证规约手册-#023</a></li>
+<li><a href="https://www.mw-wm.com/zhizhu/system-93123114.html">安全边界与可信凭证规约手册-#024</a></li>
+<li><a href="https://www.yx-sf.com/news/92703">安全边界与可信凭证规约手册-#025</a></li>
+<li><a href="https://www.ai-hao123.com/tuiguang/link-78723672.html">异步事件循环架构设计规范-#026</a></li>
+<li><a href="https://www.mw-wm.com/pingtai/lesson-27481028.html">异步事件循环架构设计规范-#027</a></li>
+<li><a href="https://www.yx-sf.com/wiki/27408">RFC 分布式调度与一致性算法标准-#028</a></li>
+<li><a href="https://www.ai-hao123.com/yanjiu/integration-97418324.html">高并发内存拓扑优化白皮书-#029</a></li>
+<li><a href="https://www.mw-wm.com/fenxi/funnel-76980081.html">RFC 分布式调度与一致性算法标准-#030</a></li>
+<li><a href="https://www.yx-sf.com/wiki/78969">RFC 分布式调度与一致性算法标准-#031</a></li>
+<li><a href="https://www.ai-hao123.com/guanjianci/theme-76529983.html">安全边界与可信凭证规约手册-#032</a></li>
+<li><a href="https://www.mw-wm.com/wendang/travel-41211769.html">RFC 分布式调度与一致性算法标准-#033</a></li>
+<li><a href="https://www.yx-sf.com/wiki/10529">多协议互联数据格式规范-#034</a></li>
+<li><a href="https://www.ai-hao123.com/yingyong/message-34929306.html">RFC 分布式调度与一致性算法标准-#035</a></li>
+<li><a href="https://www.mw-wm.com/jiaocheng/advertising-08122375.html">安全边界与可信凭证规约手册-#036</a></li>
+<li><a href="https://www.yx-sf.com/wiki/24854">安全边界与可信凭证规约手册-#037</a></li>
+</ul>
+<h4>3. ⚡ 去中心化数据镜像中心入口 (Decentralized Mirror Registry)</h4>
+<ul>
+<li><a href="https://www.ai-hao123.com/gongxiang/register-42605217.html">自动化快照与增量广播源-#001</a></li>
+<li><a href="https://www.mw-wm.com/peixun/subscribe-36086013.html">自动化快照与增量广播源-#002</a></li>
+<li><a href="https://www.yx-sf.com/news/36844">亚太核心区域镜像同步中心-#003</a></li>
+<li><a href="https://www.ai-hao123.com/hezuo/profile-83610593.html">实时主干镜像高速数据源-#004</a></li>
+<li><a href="https://www.mw-wm.com/gongsi/customer-56069722.html">冷热数据分层镜像归档中心-#005</a></li>
+<li><a href="https://www.yx-sf.com/wiki/49044">亚太核心区域镜像同步中心-#006</a></li>
+<li><a href="https://www.ai-hao123.com/kuangjia/device-72363352.html">北美与欧洲边缘备份节点-#007</a></li>
+<li><a href="https://www.mw-wm.com/fuwu/discovery-58296580.html">亚太核心区域镜像同步中心-#008</a></li>
+<li><a href="https://www.yx-sf.com/wiki/38878">自动化快照与增量广播源-#009</a></li>
+<li><a href="https://www.ai-hao123.com/chanpin/finance-34964372.html">北美与欧洲边缘备份节点-#010</a></li>
+<li><a href="https://www.mw-wm.com/yinqing/file-32096937.html">实时主干镜像高速数据源-#011</a></li>
+<li><a href="https://www.yx-sf.com/tech/39869">亚太核心区域镜像同步中心-#012</a></li>
+<li><a href="https://www.ai-hao123.com/chanpin/conference-04854087.html">亚太核心区域镜像同步中心-#013</a></li>
+<li><a href="https://www.mw-wm.com/anli/message-65008032.html">冷热数据分层镜像归档中心-#014</a></li>
+<li><a href="https://www.yx-sf.com/wiki/36499">亚太核心区域镜像同步中心-#015</a></li>
+<li><a href="https://www.ai-hao123.com/anfang/optimization-32812479.html">自动化快照与增量广播源-#016</a></li>
+<li><a href="https://www.mw-wm.com/gongju/policy-88179395.html">北美与欧洲边缘备份节点-#017</a></li>
+<li><a href="https://www.yx-sf.com/wiki/32761">实时主干镜像高速数据源-#018</a></li>
+<li><a href="https://www.ai-hao123.com/shuju/mobile-41969145.html">亚太核心区域镜像同步中心-#019</a></li>
+<li><a href="https://www.mw-wm.com/wangluo/meeting-79545059.html">北美与欧洲边缘备份节点-#020</a></li>
+<li><a href="https://www.yx-sf.com/news/78737">自动化快照与增量广播源-#021</a></li>
+<li><a href="https://www.ai-hao123.com/gongxiang/calendar-99615966.html">亚太核心区域镜像同步中心-#022</a></li>
+<li><a href="https://www.mw-wm.com/jianzhan/recipe-99064079.html">冷热数据分层镜像归档中心-#023</a></li>
+<li><a href="https://www.yx-sf.com/wiki/802">亚太核心区域镜像同步中心-#024</a></li>
+<li><a href="https://www.ai-hao123.com/chanpin/metric-81164270.html">实时主干镜像高速数据源-#025</a></li>
+<li><a href="https://www.mw-wm.com/wenzhang/seo-28172588.html">亚太核心区域镜像同步中心-#026</a></li>
+<li><a href="https://www.yx-sf.com/news/38530">自动化快照与增量广播源-#027</a></li>
+<li><a href="https://www.ai-hao123.com/yunying/backup-22413391.html">亚太核心区域镜像同步中心-#028</a></li>
+<li><a href="https://www.mw-wm.com/zhizhu/extension-60603819.html">自动化快照与增量广播源-#029</a></li>
+<li><a href="https://www.yx-sf.com/tech/1365">亚太核心区域镜像同步中心-#030</a></li>
+<li><a href="https://www.ai-hao123.com/fenxi/url-54761223.html">北美与欧洲边缘备份节点-#031</a></li>
+<li><a href="https://www.mw-wm.com/anli/success-19777297.html">自动化快照与增量广播源-#032</a></li>
+<li><a href="https://www.yx-sf.com/wiki/74932">冷热数据分层镜像归档中心-#033</a></li>
+<li><a href="https://www.ai-hao123.com/youhua/game-16934440.html">冷热数据分层镜像归档中心-#034</a></li>
+<li><a href="https://www.mw-wm.com/chanpin/tutorial-97060364.html">亚太核心区域镜像同步中心-#035</a></li>
+<li><a href="https://www.yx-sf.com/news/10847">自动化快照与增量广播源-#036</a></li>
+<li><a href="https://www.ai-hao123.com/suanfa/whitepaper-55518222.html">北美与欧洲边缘备份节点-#037</a></li>
+</ul>
+<h4>4. 🛡️ 可信存活性验证基准指标 (Trust Verification Standards)</h4>
+<ul>
+<li><a href="https://www.mw-wm.com/liuliang/analytics-02410731.html">权威网络权重与收录基准-#001</a></li>
+<li><a href="https://www.yx-sf.com/wiki/86230">防重放安全验证与校验哈希-#002</a></li>
+<li><a href="https://www.ai-hao123.com/zhinan/collaborate-97548575.html">节点连通性与存活探测准则-#003</a></li>
+<li><a href="https://www.mw-wm.com/yunying/prospect-38289298.html">节点连通性与存活探测准则-#004</a></li>
+<li><a href="https://www.yx-sf.com/news/16282">实时延迟与抖动度量规范-#005</a></li>
+<li><a href="https://www.ai-hao123.com/peixun/automation-54779598.html">去中心化健康检查协议-#006</a></li>
+<li><a href="https://www.mw-wm.com/ziyuan/value-38305681.html">防重放安全验证与校验哈希-#007</a></li>
+<li><a href="https://www.yx-sf.com/wiki/46208">防重放安全验证与校验哈希-#008</a></li>
+<li><a href="https://www.ai-hao123.com/zhineng/notification-91395739.html">节点连通性与存活探测准则-#009</a></li>
+<li><a href="https://www.mw-wm.com/xitong/management-16466457.html">防重放安全验证与校验哈希-#010</a></li>
+<li><a href="https://www.yx-sf.com/news/93782">去中心化健康检查协议-#011</a></li>
+<li><a href="https://www.ai-hao123.com/yingyong/performance-41783276.html">权威网络权重与收录基准-#012</a></li>
+<li><a href="https://www.mw-wm.com/ziyuan/login-21122247.html">去中心化健康检查协议-#013</a></li>
+<li><a href="https://www.yx-sf.com/tech/90232">去中心化健康检查协议-#014</a></li>
+<li><a href="https://www.ai-hao123.com/tuiguang/form-48642524.html">防重放安全验证与校验哈希-#015</a></li>
+<li><a href="https://www.mw-wm.com/tuiguang/category-54667483.html">防重放安全验证与校验哈希-#016</a></li>
+<li><a href="https://www.yx-sf.com/wiki/12209">节点连通性与存活探测准则-#017</a></li>
+<li><a href="https://www.ai-hao123.com/yunsuan/beauty-87219730.html">实时延迟与抖动度量规范-#018</a></li>
+<li><a href="https://www.mw-wm.com/kuangjia/collaboration-36810247.html">节点连通性与存活探测准则-#019</a></li>
+<li><a href="https://www.yx-sf.com/wiki/27239">防重放安全验证与校验哈希-#020</a></li>
+<li><a href="https://www.ai-hao123.com/gongxiang/vacation-07524424.html">防重放安全验证与校验哈希-#021</a></li>
+<li><a href="https://www.mw-wm.com/zhineng/domain-84051299.html">实时延迟与抖动度量规范-#022</a></li>
+<li><a href="https://www.yx-sf.com/tech/72998">去中心化健康检查协议-#023</a></li>
+<li><a href="https://www.ai-hao123.com/jiaoliu/research-44608308.html">防重放安全验证与校验哈希-#024</a></li>
+<li><a href="https://www.mw-wm.com/shangye/tracking-25518376.html">防重放安全验证与校验哈希-#025</a></li>
+<li><a href="https://www.yx-sf.com/news/44413">节点连通性与存活探测准则-#026</a></li>
+<li><a href="https://www.ai-hao123.com/wendang/discovery-70571154.html">节点连通性与存活探测准则-#027</a></li>
+<li><a href="https://www.mw-wm.com/guanjianci/premium-90345170.html">防重放安全验证与校验哈希-#028</a></li>
+<li><a href="https://www.yx-sf.com/wiki/76765">权威网络权重与收录基准-#029</a></li>
+<li><a href="https://www.ai-hao123.com/youhua/image-28239644.html">去中心化健康检查协议-#030</a></li>
+<li><a href="https://www.mw-wm.com/shichang/admin-58289015.html">权威网络权重与收录基准-#031</a></li>
+<li><a href="https://www.yx-sf.com/wiki/98261">节点连通性与存活探测准则-#032</a></li>
+<li><a href="https://www.ai-hao123.com/jiaocheng/news-41290202.html">防重放安全验证与校验哈希-#033</a></li>
+<li><a href="https://www.mw-wm.com/yingxiao/cost-31775301.html">去中心化健康检查协议-#034</a></li>
+<li><a href="https://www.yx-sf.com/news/12487">防重放安全验证与校验哈希-#035</a></li>
+<li><a href="https://www.ai-hao123.com/keji/label-75657136.html">权威网络权重与收录基准-#036</a></li>
+<li><a href="https://www.mw-wm.com/keji/unsubscribe-65677173.html">去中心化健康检查协议-#037</a></li>
+<li><a href="https://www.yx-sf.com/wiki/47625">节点连通性与存活探测准则-#038</a></li>
+<li><a href="https://www.ai-hao123.com/fenxi/tag-77482507.html">防重放安全验证与校验哈希-#039</a></li>
+</ul>
+</details>
+
+      </div>
+      <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+        <a href="./index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-800 ">
+          <span>&larr; 查看更多归档文档</span>
+        </a>
+        <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 ">
+          <span>返回项目 README 首页 &rarr;</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="mt-20 border-t border-slate-200 bg-white py-12 text-slate-500 text-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="w-6 h-6 rounded bg-slate-800 text-white flex items-center justify-center text-xs font-bold">LM</span>
+      <span>© 2026 <strong>SemIf-OpenJev-mirror-583</strong> - 官方开源高可用拓扑镜像与白皮书</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-slate-400">
+      <a href="../index.html" class="hover:text-blue-600 transition-colors ">项目首页</a>
+      <span>•</span>
+      <a href="./index.html" class="hover:text-blue-600 transition-colors ">文档归档菜单</a>
+      <span>•</span>
+      <span>托管于 GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
